@@ -2,28 +2,19 @@ package com.pfreitas.letras;
 
 import java.util.Scanner;
 
-import com.pfreitas.Executavel;
+public class ContarLetras {
 
-public class ContarLetras implements Executavel {
+    public static void main(String[] args) {
 
-    private Scanner scanner;
-
-    public ContarLetras(Scanner scanner) {
-        this.scanner = scanner;
-    }
-
-    @Override
-    public void executar() {
+        Scanner scanner = new Scanner(System.in);
         
-        String entrada = scanner.nextLine();
+        Frase frase = new Frase(scanner.nextLine());
 
-        int indiceInicioUltimaPalavra = entrada.lastIndexOf(" ") + 1;
+        Palavra ultimaPalavra = frase.getUltimaPalavra();
+        
+        System.out.println(ultimaPalavra.getNumeroDeCaracteres());
 
-        String ultimaPalavra = entrada.substring(indiceInicioUltimaPalavra);
-
-        int numeroCaracteresUltimaPalavra = ultimaPalavra.length();
-
-        System.out.println(numeroCaracteresUltimaPalavra);
+        scanner.close();
 
     }
     
